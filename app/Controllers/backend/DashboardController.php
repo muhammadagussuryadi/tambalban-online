@@ -8,14 +8,6 @@ use Config\Database;
 class DashboardController extends BaseController
 {
   public function __construct() { 
-    // parent::__construct();
-    // if(!session()->get('login_session')){
-      // return redirect()->route('/index');
-      
-      // d("masuk");
-      
-    // }
-
     $this->db = Database::connect('default');
     $this->parser = Services::parser();
 

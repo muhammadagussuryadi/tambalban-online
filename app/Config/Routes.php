@@ -46,9 +46,13 @@ $routes->group('be',['filter' => 'authfilter'], function ($routes) {
 
 
     $routes->get('administrator', 'backend\AdministratorController::index');
+    $routes->get('administratorForm/(:any)', 'backend\AdministratorController::showForm/$1');
+    $routes->post('administrator', 'backend\AdministratorController::addData');
 
     $routes->get('user-pengguna', 'backend\UserPenggunaController::index');
+
     $routes->get('bengkel', 'backend\BengkelController::index');
+    $routes->get('bengkelForm/(:any)', 'backend\BengkelController::showForm/$1');
 });
 /*
  * --------------------------------------------------------------------

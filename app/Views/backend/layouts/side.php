@@ -13,7 +13,7 @@
           <img src="<?php echo base_url();?>/assets/img/faces/6.jpg" alt="user-img" class="rounded-circle mCS_img_loaded">
         </div>
         <div class="user-info">
-          <h6 class=" mb-0 text-dark">Muhammad Agus Suryadi</h6>
+          <h6 class=" mb-0 text-dark"><?php echo session()->login_session['name']; ?></h6>
           <span class="text-muted app-sidebar__user-name text-sm">Administrator</span>
         </div>
       </div>

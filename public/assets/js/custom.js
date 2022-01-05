@@ -358,6 +358,71 @@ $(function() {
 	/* ############ Horizontal-White ############*/
 
 	// $('body').addClass('horizontal-white'); //
+
+	$(".edit-form").click(function(){
+		// alert("masuk");
+		$(".push-modal-content").html("");
+		var routeForm = $(this).attr("rt-form");
+		var _token = $("input[name='_token']").val();
+		$.ajax({
+			url : routeForm,
+			method : "GET",
+			headers: {
+				'X-CSRF-Token': _token,
+			},
+			success: function(res){
+				console.log(routeForm);
+				var response =JSON.parse(res);
+				console.log(response);
+				if(response.statusCode == 200){
+					$(".push-modal-content").html(response.content);
+					$('.select2').select2();
+					$("#modaldemo3").modal("show");
+				}
+			}
+		});
+	});
+
+	//Warning Message
+	$('.deleted-alert').click(function () {
+		var routeDelete = $(this).attr("rt-deleted");
+		var _token = $("input[name='_token']").val();
+		swal({
+		  title: "Anda Yakin?",
+		  text: "Sistem Akan Menghapus Data Ini !",
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonClass: "btn btn-danger",
+		  confirmButtonText: "Ya, hapus data ini!",
+		  cancelButtonText: "Batal",
+		  closeOnConfirm: false
+		},
+		function(e){
+			if(e){
+				$.ajax({
+					url: "/"+routeDelete,
+					method: "DELETE",
+					headers: {
+							'X-CSRF-Token': _token,
+					},
+					success: function(res){
+						var response =JSON.parse(res);
+						if(response.statusCode == 200){
+							swal("Deleted!", "data berhasil dihapus oleh sistem.", "success");
+							setTimeout(() => {
+								location.reload();
+							}, 2000);
+						}else{
+							swal("Gagal!", "data gagal dihapus oleh sistem.", "error");
+						}
+					}, 
+					error: function(){
+						swal("Gagal!", "data gagal dihapus oleh sistem.", "error");
+					 }
+					});
+			}
+		});
+	});
 	
 });
 	

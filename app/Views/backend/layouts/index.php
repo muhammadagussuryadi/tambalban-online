@@ -24,6 +24,18 @@
 		<link href="<?php echo base_url();?>/assets/css/style.css" rel="stylesheet">
 		<link href="<?php echo base_url();?>/assets/css/skin-modes.css" rel="stylesheet">
 
+		<!-- Internal Data table css -->
+		<link href="<?php echo base_url();?>/assets/plugins/datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+		<link href="<?php echo base_url();?>/assets/plugins/datatable/css/buttons.bootstrap4.min.css" rel="stylesheet">
+		<link href="<?php echo base_url();?>/assets/plugins/datatable/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+		<link href="<?php echo base_url();?>/assets/plugins/datatable/css/jquery.dataTables.min.css" rel="stylesheet">
+		<link href="<?php echo base_url();?>/assets/plugins/datatable/css/responsive.dataTables.min.css" rel="stylesheet">
+		
+		<link href="<?php echo base_url();?>/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+
+		<!--- Internal Sweet-Alert css --->
+		<link href="<?php echo base_url();?>/assets/plugins/sweet-alert/sweetalert.css" rel="stylesheet">
+
 		<!--- Sidemenu css --->
 		<link href="<?php echo base_url();?>/assets/css/closed-sidemenu.css" rel="stylesheet">
 
@@ -32,7 +44,14 @@
 
 		<!--- JQuery min js --->
 		<script src="<?php echo base_url();?>/assets/plugins/jquery/jquery.min.js"></script>
-
+		
+		<!--- Select2.min js --->
+		<script src="<?php echo base_url();?>/assets/plugins/select2/js/select2.min.js"></script>
+		<style type="text/css">
+			.pac-container {
+					z-index: 99999 !important;
+			}
+		</style>
 	</head>
 
 	<body class="main-body app sidebar-mini">
@@ -138,6 +157,31 @@
 		<!--- Right-sidebar js --->
 		<script src="<?php echo base_url();?>/assets/plugins/sidebar/sidebar.js"></script>
 		<script src="<?php echo base_url();?>/assets/plugins/sidebar/sidebar-custom.js"></script>
+
+		<!-- Internal Data tables -->
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/dataTables.dataTables.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/dataTables.responsive.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/responsive.dataTables.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/jquery.dataTables.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/dataTables.bootstrap4.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/buttons.bootstrap4.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/jszip.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/pdfmake.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/vfs_fonts.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/buttons.html5.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/buttons.print.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/dataTables.responsive.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/datatable/js/responsive.bootstrap4.min.js"></script>
+
+		<!-- datatable js -->
+		<script src="<?php echo base_url();?>/assets/js/table-data.js"></script>
+
+		<!--- Internal Sweet-Alert js --->
+		<script src="<?php echo base_url();?>/assets/plugins/sweet-alert/sweetalert.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/sweet-alert/jquery.sweet-alert.js"></script>
 
 		<!--- Index js --->
 		<script src="<?php echo base_url();?>/assets/js/script.js"></script>
