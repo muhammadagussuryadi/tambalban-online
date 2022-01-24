@@ -12,25 +12,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="text-center">
-              <a href="javascript:;" class="btn btn-sm btn-danger deleted-alert"><i class="fa fa-trash"></i></a>
-              <a href="javascript:;" class="btn btn-sm btn-warning edit-form" rt-form="<?= base_url();?>/be/administratorForm/0"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>1</td>
-            <td>Renal</td>
-            <td>renal.id</td>
-            <td>-</td>
-          <tr>
-            <td class="text-center">
-              <a href="javascript:;" class="btn btn-sm btn-danger deleted-alert"><i class="fa fa-trash"></i></a>
-              <a href="javascript:;" class="btn btn-sm btn-warning edit-form" rt-form="<?= base_url();?>/be/administratorForm/0"><i class="fa fa-edit"></i></a>
-            </td>
-            <td>2</td>
-            <td>Bewin</td>
-            <td>bewin.id</td>
-            <td>-</td>
-          </tr>
+          <?php foreach ($data as $key => $v) : ?>
+            <tr>
+              <td class="text-center">
+                <a href="javascript:;" class="btn btn-sm btn-danger deleted-alert" rt-deleted="<?= base_url();?>/be/administrator/<?= $v['id']?>"><i class="fa fa-trash"></i></a>
+                <a href="javascript:;" class="btn btn-sm btn-warning edit-form" rt-form="<?= base_url();?>/be/administratorForm/<?= $v['id']?>"><i class="fa fa-edit"></i></a>
+              </td>
+              <td><?= ++$key ?></td>
+              <td><?= $v['name'] ?></td>
+              <td><?= $v['username'] ?></td>
+              <td><?= $v['email'] ?></td>
+            </tr>
+          <?php endforeach ?>
         </tbody>
       </table>
     </div>

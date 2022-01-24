@@ -386,13 +386,14 @@ $(function() {
 	//Warning Message
 	$('.deleted-alert').click(function () {
 		var routeDelete = $(this).attr("rt-deleted");
+		
 		var _token = $("input[name='_token']").val();
 		swal({
 		  title: "Anda Yakin?",
 		  text: "Sistem Akan Menghapus Data Ini !",
 		  type: "warning",
 		  showCancelButton: true,
-		  confirmButtonClass: "btn btn-danger",
+		  confirmButtonColor: "btn btn-danger",
 		  confirmButtonText: "Ya, hapus data ini!",
 		  cancelButtonText: "Batal",
 		  closeOnConfirm: false
@@ -400,11 +401,8 @@ $(function() {
 		function(e){
 			if(e){
 				$.ajax({
-					url: "/"+routeDelete,
+					url: routeDelete,
 					method: "DELETE",
-					headers: {
-							'X-CSRF-Token': _token,
-					},
 					success: function(res){
 						var response =JSON.parse(res);
 						if(response.statusCode == 200){

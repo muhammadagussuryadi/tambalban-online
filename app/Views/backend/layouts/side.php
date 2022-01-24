@@ -1,7 +1,7 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="main-sidebar app-sidebar sidebar-scroll">
   <div class="main-sidebar-header">
-    <a class="desktop-logo logo-light active" href="#" class="text-center mx-auto"><img src="<?php echo base_url();?>/assets/img/brand/logo.png" class="main-logo"></a>
+    <a class="desktop-logo logo-light active" href="#" class="text-center mx-auto"><img src="<?php echo base_url();?>/assets/img/brand/logo-black.png" class="main-logo" style="height: 62px;width: 125px;margin-top: -16px;"></a>
     <a class="desktop-logo icon-logo active"href="#"><img src="<?php echo base_url();?>/assets/img/brand/favicon.png" class="logo-icon"></a>
     <a class="desktop-logo logo-dark active" href="#"><img src="<?php echo base_url();?>/assets/img/brand/logo-white.png" class="main-logo dark-theme" alt="logo"></a>
     <a class="logo-icon mobile-logo icon-dark active" href="#"><img src="<?php echo base_url();?>/assets/img/brand/favicon-white.png" class="logo-icon dark-theme" alt="logo"></a>
