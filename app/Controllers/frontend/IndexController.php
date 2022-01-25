@@ -25,6 +25,13 @@ class IndexController extends BaseController
   }
 
   public function getData(){
+    // SELECT (6371 * acos( 
+    //   cos( radians(lat2) ) 
+    // * cos( radians( lat1 ) ) 
+    // * cos( radians( lng1 ) - radians(lng2) ) 
+    // + sin( radians(lat2) ) 
+    // * sin( radians( lat1 ) )
+    //   ) ) as distance 
     $query = $this->db->query("SELECT * FROM garage");
     $data = $query->getResult();
     $this->viewPage['data'] = $data;

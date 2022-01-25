@@ -53,7 +53,7 @@ $routes->group('be',['filter' => 'authfilter'], function ($routes) {
 
     $routes->get('bengkel', 'backend\BengkelController::index');
     $routes->get('bengkelForm/(:any)', 'backend\BengkelController::showForm/$1');
-    $routes->delete('bengkelForm/(:any)', 'backend\BengkelController::delete/$1');
+    $routes->delete('bengkel/(:any)', 'backend\BengkelController::delete/$1');
     $routes->post('bengkel', 'backend\BengkelController::addData');
 });
 /*

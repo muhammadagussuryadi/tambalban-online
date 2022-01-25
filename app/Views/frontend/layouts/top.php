@@ -4,7 +4,7 @@
     <div class="main-header-left ">
       <a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
       <a class="header-brand" href="index.html">
-        <img src="<?= base_url()?>/assets/img/brand/logo-white.png" class="logo-white ">
+        <img src="<?= base_url()?>/assets/img/brand/logo-black.png" width="100" height="60" class="logo-white ">
         <img src="<?= base_url()?>/assets/img/brand/logo.png" class="logo-default">
         <img src="<?= base_url()?>/assets/img/brand/favicon-white.png" class="icon-white">
         <img src="<?= base_url()?>/assets/img/brand/favicon.png" class="icon-default">

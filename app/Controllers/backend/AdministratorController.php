@@ -42,7 +42,7 @@ class AdministratorController extends BaseController
         'name' => $name,
         'email' => $email,
         'username' => $username,
-        'password' => $password,
+        'password' => ($this->request->getPost('password')? $password: $this->request->getPost('passwordOld')),
       ]);
     }else{
       $this->usersModel->insert([
@@ -72,6 +72,7 @@ class AdministratorController extends BaseController
     $user['name'] = ($user['name']? : '');
     $user['email'] = ($user['email']? : '');
     $user['username'] = ($user['username']? : '');
+    $user['password'] = ($user['password']? : '');
     $user['baseUrl'] = $this->viewPage['baseUrl'];
     $html = $this->parser->setData($user)->render('backend/pages/administrator/component/form');
     echo json_encode(array('statusCode'=>200, 'content'=>$html));

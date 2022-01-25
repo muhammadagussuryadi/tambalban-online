@@ -42,6 +42,8 @@
 		<!--- Animations css --->
 		<link href="<?php echo base_url();?>/assets/css/animate.css" rel="stylesheet">
 
+		<link href="<?php echo base_url();?>/assets/css/custom.css" rel="stylesheet">
+
 		<!--- JQuery min js --->
 		<script src="<?php echo base_url();?>/assets/plugins/jquery/jquery.min.js"></script>
 		
@@ -145,8 +147,8 @@
 		<script src="<?php echo base_url();?>/assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
 
 		<!--- P-scroll js --->
-		<script src="<?php echo base_url();?>/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-		<script src="<?php echo base_url();?>/assets/plugins/perfect-scrollbar/p-scroll.js"></script>
+		<!-- <script src="<?php echo base_url();?>/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+		<script src="<?php echo base_url();?>/assets/plugins/perfect-scrollbar/p-scroll.js"></script> -->
 
 
 		<!--- Eva-icons js --->

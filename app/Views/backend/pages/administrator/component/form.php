@@ -20,6 +20,7 @@
       <div class="col-lg-6 mg-b-10">
         <p class="mg-b-10">Password</p>
         <input type="password" name="password" class="form-control" placeholder="Password" value="">
+        <input type="hidden" name="passwordOld" class="form-control" placeholder="Password" value="{password}">
       </div>
     </div>
   </div>
