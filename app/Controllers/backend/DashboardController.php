@@ -27,7 +27,7 @@ class DashboardController extends BaseController
   }
 
   public function renderContent(){
-    $html = $this->parser->render('backend/pages/dashboard/component/progress', $this->viewPage);
+    $html = $this->parser->setData($this->viewPage)->render('backend/pages/dashboard/component/progress');
     echo $html;
   } 
 }

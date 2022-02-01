@@ -12,6 +12,7 @@ class IndexController extends BaseController
     $this->parser = Services::parser();
 
     $this->viewPage = array(
+      'keyword'=>'',
       'data'=>array(),
       'titlePage'=>'Index',
       'locationPage'=>'frontend/pages/index/index'      
@@ -32,7 +33,13 @@ class IndexController extends BaseController
     // + sin( radians(lat2) ) 
     // * sin( radians( lat1 ) )
     //   ) ) as distance 
-    $query = $this->db->query("SELECT * FROM garage");
+    $where = "deleted= 0 AND verification = 1 ";
+    if($this->request->getVar('keyword')){
+      $keyword = $this->request->getVar('keyword');
+      $where .= " AND (name LIKE '%".$keyword."%' OR address LIKE '%".$keyword."%' OR address_detail LIKE '%".$keyword."%' )";
+      $this->viewPage['keyword'] = $keyword;
+    }
+    $query = $this->db->query("SELECT * FROM garage WHERE ".$where);
     $data = $query->getResult();
     $this->viewPage['data'] = $data;
   }

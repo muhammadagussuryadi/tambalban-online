@@ -37,6 +37,7 @@ $routes->get('/index', 'frontend\IndexController::index');
 $routes->get('/login', 'Auth::index'); 
 $routes->get('/logout', 'Auth::logout'); 
 $routes->post('/login', 'Auth::verify'); 
+$routes->post('/loginGoogle', 'Auth::verifyGoogle'); 
 // $routes->get('/dashboard', 'backend\DashboardController::index');
 
 $routes->group('be',['filter' => 'authfilter'], function ($routes) {
@@ -53,8 +54,10 @@ $routes->group('be',['filter' => 'authfilter'], function ($routes) {
 
     $routes->get('bengkel', 'backend\BengkelController::index');
     $routes->get('bengkelForm/(:any)', 'backend\BengkelController::showForm/$1');
+    $routes->get('bengkelFormVerification/(:any)', 'backend\BengkelController::showFormVerification/$1');
     $routes->delete('bengkel/(:any)', 'backend\BengkelController::delete/$1');
     $routes->post('bengkel', 'backend\BengkelController::addData');
+    $routes->post('bengkelVerification', 'backend\BengkelController::verificationData');
 });
 /*
  * --------------------------------------------------------------------

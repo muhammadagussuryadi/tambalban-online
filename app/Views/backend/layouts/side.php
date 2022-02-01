@@ -43,15 +43,19 @@
       <li class="slide">
         <a class="side-menu__item" href="dashboard"><i class="side-menu__icon fe fe-airplay"></i><span class="side-menu__label">Dashboard</span></a>
       </li>
-      <li class="slide">
-        <a class="side-menu__item" href="user-pengguna"><i class="side-menu__icon fe fe-users"></i><span class="side-menu__label">User Pengguna</span></a>
-      </li>
+      <?php if(session()->login_session['role_user'] != 2){?>
+        <li class="slide">
+          <a class="side-menu__item" href="user-pengguna"><i class="side-menu__icon fe fe-users"></i><span class="side-menu__label">User Pengguna</span></a>
+        </li>
+      <?php }?>
       <li class="slide">
         <a class="side-menu__item" href="bengkel"><i class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">Bengkel</span></a>
       </li>
-      <li class="slide">
-        <a class="side-menu__item" href="administrator"><i class="side-menu__icon fe fe-user-check"></i><span class="side-menu__label">Administrator</span></a>
-      </li>
+      <?php if(session()->login_session['role_user'] == 0){?>
+        <li class="slide">
+          <a class="side-menu__item" href="administrator"><i class="side-menu__icon fe fe-user-check"></i><span class="side-menu__label">Administrator</span></a>
+        </li>
+      <?php }?>
     </ul>
   </div>
 </aside>

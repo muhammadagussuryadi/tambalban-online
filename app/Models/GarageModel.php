@@ -9,5 +9,5 @@ class GarageModel extends Model
     protected $table                = 'garage';
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
-    protected $allowedFields        = ['deleted','id_user','name','address','address_detail','latitude','longitude','phone_number','photo1','photo2','photo3','owner','status','verification','reated_at','updated_at'];
+    protected $allowedFields        = ['deleted','id_user','name','address','address_detail','latitude','longitude','phone_number','photo1','photo2','photo3','owner','status','verification','verification_note','reated_at','updated_at'];
 }

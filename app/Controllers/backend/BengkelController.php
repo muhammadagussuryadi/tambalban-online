@@ -28,7 +28,11 @@ class BengkelController extends BaseController
 
   public function index()
   {
-    $this->viewPage['data'] = $this->garageModel->where('deleted', 0)->findAll();
+    if(session()->login_session['role_user'] == 2){
+      $this->viewPage['data'] = $this->garageModel->where('deleted', 0)->where('id_user',session()->login_session['id'])->orderBy('id','desc')->findAll();
+    }else{
+      $this->viewPage['data'] = $this->garageModel->where('deleted', 0)->orderBy('id','desc')->findAll();
+    }
     return view($this->viewPage['locationPage'], $this->viewPage);
   }
 
@@ -81,6 +85,20 @@ class BengkelController extends BaseController
     return redirect()->to(base_url('/be/bengkel'))->with('success', 'Data berhasil disimpan');
   }
 
+  public function verificationData(){
+    $id = $this->request->getPost('id');
+    if($id){
+      $dataPost = [
+        'verification' => $this->request->getPost('verification'),
+        'verification_note' => $this->request->getPost('verification_note'),
+      ];
+      $this->garageModel->update($id,$dataPost);
+      return redirect()->to(base_url('/be/bengkel'))->with('success', 'Data berhasil disimpan');
+    }else{
+      return redirect()->to(base_url('/be/bengkel'))->with('failed', 'Data gagal disimpan');
+    }
+  }
+
   public function delete($id){
     if($id){
       $this->garageModel->update($id,[
@@ -112,6 +130,15 @@ class BengkelController extends BaseController
     $data['baseUrl'] = $this->viewPage['baseUrl'];
     $data['googleKey'] = $this->viewPage['googleKey'];
     $html = $this->parser->setData($data)->render('backend/pages/bengkel/component/form');
+    echo json_encode(array('statusCode'=>200, 'content'=>$html));
+  }
+  public function showFormVerification($id = null){
+    $data= $this->garageModel->where('id', $id)->first();
+    $data['id'] = ($data['id']? : '');
+    $data['verification'] = ($data['verification']? : '');
+    $data['verification_note'] = ($data['verification_note']? : '');
+    $data['baseUrl'] = $this->viewPage['baseUrl'];
+    $html = $this->parser->setData($data)->render('backend/pages/bengkel/component/formVerification');
     echo json_encode(array('statusCode'=>200, 'content'=>$html));
   }
 }

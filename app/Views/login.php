@@ -58,21 +58,21 @@
 					<div class="wd-md-50p login d-none d-md-block page-signin-style p-5 text-white">
 						<div class="my-auto authentication-pages">
 							<div>
-								<img src="<?= base_url() ?>/assets/img/brand/logo-black.png" class=" m-0 mb-4" width="150" alt="logo">
-								<h5 class="mb-4">Responsive Modern Dashboard &amp; Admin Template</h5>
-								<p class="mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-									has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-									galley of type and scrambled it to make a type specimen book.</p>
+								<img src="<?= base_url() ?>/assets/img/brand/logo-white.png" class=" m-0 mb-4" width="150" alt="logo">
+								<h5 class="mb-1">Ayo daftarin bengkel kamu disini !</h5>
+								<p class="mb-1">
+									biar orang - orang yang sedang kesusahan dijalan bisa secara cepat nemuin bengkel kamu secara online.
+								</p>
 							</div>
 						</div>
 					</div>
 					<div class="p-5 wd-md-50p">
 						<div class="main-signin-header">
-							<h2>Welcome back!</h2>
-							<h4>Please sign in to continue</h4>
+							<h2>Selamat datang !</h2>
+							<h4>Silahkan login untuk melanjutkan</h4>
 							<form action="<?= base_url()?>/login" method="post">
 								<div class="form-group">
-									<label>Username/Password</label>
+									<label>Username/Email</label>
                   <input class="form-control" placeholder="Username / email" type="text" name="username" value="">
 								</div>
 								<div class="form-group">
@@ -83,7 +83,7 @@
 							</form>
 						</div>
             <div class="main-signin-footer mt-3 mg-t-5">
-							<p><a href="" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark">Login with Google</a></p>
+							<p><a href="" class="g-signin2" data-onsuccess="onSignIn" data-width="300" data-height="40" data-longtitle="true">Login with Google</a></p>
 						</div>
 					</div>
 				</div>
@@ -118,20 +118,45 @@
 	<!--- Custom js --->
 	<script src="<?= base_url() ?>/assets/js/custom.js"></script>
 
-	<script>
+	<script type="text/javascript">
+			var baseUrl = window.location.origin;
       function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
+				var auth2 = gapi.auth2.getAuthInstance();
+				auth2.signOut().then(function () {
+						console.log('User signed out.');
+				});
+				
+				// Useful data for your client-side scripts:
+				var profile = googleUser.getBasicProfile();
+				if(profile.getEmail()){
+					$.ajax({
+						method: "POST",
+						url:baseUrl+"/loginGoogle",
+						data:{
+							'name':profile.getName(),
+							'photo':profile.getImageUrl(),
+							'email':profile.getEmail(),
+							},
+						success: function(res){
+							var response = JSON.parse(res);
+							if(response.statusCode == 200){
+								location.reload();
+							}else{
+								alert("gagal login");
+							}
+						}
+					});
+				}
+        // console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        // console.log('Full Name: ' + profile.getName());
+        // console.log('Given Name: ' + profile.getGivenName());
+        // console.log('Family Name: ' + profile.getFamilyName());
+        // console.log("Image URL: " + profile.getImageUrl());
+        // console.log("Email: " + profile.getEmail());
 
         // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
+        // var id_token = googleUser.getAuthResponse().id_token;
+        // console.log("ID Token: " + id_token);
       }
     </script>
 

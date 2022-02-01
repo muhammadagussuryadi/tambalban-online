@@ -15,7 +15,7 @@
 	<title>Tambal Ban Online</title>
 
 	<!--- Favicon --->
-	<link rel="icon" href="<?= base_url()?>/assets/img/brand/favicon.png" type="image/x-icon" />
+	<link rel="icon" href="<?= base_url()?>/assets/img/brand/logo-black.png" type="image/x-icon" />
 
 	<!--- Icons css --->
 	<link href="<?= base_url()?>/assets/css/icons.css" rel="stylesheet">
@@ -28,10 +28,12 @@
 
 	<!--- Style css --->
 	<link href="<?= base_url()?>/assets/css/style.css" rel="stylesheet">
+	<link href="<?= base_url()?>/assets/css/boxed.css" rel="stylesheet">
 	<link href="<?= base_url()?>/assets/css/skin-modes.css" rel="stylesheet">
 
 	<!--- Animations css --->
 	<link href="<?= base_url()?>/assets/css/animate.css" rel="stylesheet">
+	<link href="<?= base_url()?>/assets/css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -58,7 +60,8 @@
 				<!-- breadcrumb -->
 				<div class="breadcrumb-header justify-content-between">
 					<div>
-						<h4 class="content-title mb-2">Hi, Selamat datang kembali!</h4>
+
+						<h4 class="content-title mb-2">Hi, <?php echo (session()->login_session['name'] ? session()->login_session['name'] : 'Selamat datang !'); ?></h4>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Pages</a></li>
@@ -85,8 +88,7 @@
 		<!-- Footer opened -->
 		<div class="main-footer ht-40">
 			<div class="container-fluid pd-t-0-f ht-100p">
-				<span>Copyright © 2020 <a href="#">Azira</a>. Designed by <a href="https://www.spruko.com/">Spruko</a> All
-					rights reserved.</span>
+				<span>Copyright © 2022 <a href="#">Tablon</span>
 			</div>
 		</div>
 		<!-- Footer closed -->
