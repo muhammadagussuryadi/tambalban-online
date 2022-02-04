@@ -79,11 +79,11 @@
 									<label>Password</label>
                   <input class="form-control" placeholder="Password" type="password" name="password" value="">
 								</div>
-                <button class="btn btn-main-primary btn-block">Sign In</button>
+                <button class="btn btn-main-primary btn-block">Login</button>
 							</form>
 						</div>
             <div class="main-signin-footer mt-3 mg-t-5">
-							<p><a href="" class="g-signin2" data-onsuccess="onSignIn" data-width="300" data-height="40" data-longtitle="true">Login with Google</a></p>
+							<p><a href="" class="g-signin2" data-onsuccess="onSignIn" data-width="300" data-height="40" data-longtitle="true" data-label="aa">Login with Google</a></p>
 						</div>
 					</div>
 				</div>
@@ -157,6 +157,10 @@
         // The ID token you need to pass to your backend:
         // var id_token = googleUser.getAuthResponse().id_token;
         // console.log("ID Token: " + id_token);
+				setTimeout(() => {
+					alert("masuk");
+					$(".abcRioButtonContents").html("");
+				}, 1000);
       }
     </script>
 
