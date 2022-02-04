@@ -20,7 +20,7 @@ class BengkelController extends BaseController
     $this->viewPage = array(
       'data'=>array(),
       'baseUrl'=>base_url(),
-      'googleKey'=>'AIzaSyCx_nnGJrQPfZSkW7FChI9nYX_v2Vhk830',
+      'googleKey'=>'',
       'titlePage'=>'Bengkel',
       'locationPage'=>'backend/pages/bengkel/index'      
     );
